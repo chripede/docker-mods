@@ -8,6 +8,7 @@ env:
   BASEIMAGE: "universal" #replace
   MODNAME: "wireguardvpn" #replace
   MULTI_ARCH: "false" #set to false if not needed
+  BRANCH: "wireguardvpn"
 
 jobs:
   set-vars:
