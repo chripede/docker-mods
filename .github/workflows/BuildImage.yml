@@ -4,7 +4,7 @@ on: [push, pull_request_target, workflow_dispatch]
 
 env:
   GITHUB_REPO: "linuxserver/docker-mods" #don't modify
-  ENDPOINT: "linuxserver/mods" #don't modify
+  ENDPOINT: "chripede/docker-mods" #don't modify
   BASEIMAGE: "universal" #replace
   MODNAME: "wireguardvpn" #replace
   MULTI_ARCH: "false" #set to false if not needed
