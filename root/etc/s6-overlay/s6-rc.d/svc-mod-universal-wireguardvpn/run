@@ -1,5 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-echo "************ Wireguard VPN **************"
-wg-quick up /config/wg0.conf
-sleep infinity
