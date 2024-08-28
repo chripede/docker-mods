@@ -3,12 +3,18 @@
 # shellcheck disable=SC2016,SC1091,SC2183
 
 
-echo "============ WG NETWORK CONF ==================="
+if [[ -n "$LAN_NETWORK" ]]; then
 
-lan_network_item="192.168.0.0/24"
-default_gateway_ip="$(ip route | grep default | cut -d " " -f 3)"
-default_gateway_adapter="$(ip route | grep default | cut -d " " -f 5)"
+    echo "**** Configuring firewall for local network"
 
-ip route add "${lan_network_item}" via "${default_gateway_ip}" dev "${default_gateway_adapter}"
+    lan_network_item="${LAN_NETWORK}"
+    default_gateway_ip="$(ip route | grep default | cut -d " " -f 3)"
+    default_gateway_adapter="$(ip route | grep default | cut -d " " -f 5)"
 
-echo "============== DONE =============="
+    ip route add "${lan_network_item}" via "${default_gateway_ip}" dev "${default_gateway_adapter}"
+
+else
+
+    echo "**** No local LAN specified"
+
+fi
