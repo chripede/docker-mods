@@ -5,7 +5,7 @@ if [ -f /usr/bin/apt ]; then
     echo "**** Adding universal-wireguardvpn packages to install lists ****"
     echo "\
         systemd-resolved \
-        wireguard-tools" >> /mod-repo-packages-to-install.list
+        wireguard" >> /mod-repo-packages-to-install.list
 
 fi
 
