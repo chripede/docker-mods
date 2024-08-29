@@ -2,9 +2,13 @@
 
 This mod adds client Wireguard VPN.
 
+**Only Alpine based** containers are supported!
+
 ## Usage
 
 Place your Wireguard VPN .conf file in `/config/wg_confs/` and it will be loaded automatically.
+
+**Important: Your Wireguard config file MUST have a DNS set, otherwise you will not be able to resolve domains.**
 
 This mod is activated in LSIO containers by adding `-e DOCKER_MODS=gchr.io/chripede/universal-wireguardvpn` to the docker run command.
 
