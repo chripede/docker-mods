@@ -1,18 +1,5 @@
 #!/usr/bin/with-contenv bash
 
-## Ubuntu
-if [ -f /usr/bin/apt ]; then
-    echo "**** Adding universal-wireguardvpn packages to install lists ****"
-    echo "\
-        iptables \
-        iputils-ping \
-        wireguard" >> /mod-repo-packages-to-install.list
-
-    curl -o /coredns.tgz -L https://github.com/coredns/coredns/releases/download/v1.11.3/coredns_1.11.3_linux_amd64.tgz
-    tar xf /coredns.tgz
-    cp coredns /usr/local/bin/
-fi
-
 # Alpine
 if [ -f /sbin/apk ]; then
     if ! apk info --installed wireguard-tools >/dev/null; then
@@ -30,4 +17,13 @@ if [ -f /sbin/apk ]; then
     else
         echo "**** Universal-wireguardvpn packages already installed, skipping ****"
     fi
+else
+    echo "**************************************************"
+    echo "**                     WARNING                  **"
+    echo "**                                              **"
+    echo "** Mod not supported! Universal-wireguardvpn is **"
+    echo "** only supported on Alpine based containers.   **"
+    echo "**                                              **"
+    echo "**************************************************"
+    exit 1
 fi
