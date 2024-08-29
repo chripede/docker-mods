@@ -4,9 +4,15 @@
 if [ -f /usr/bin/apt ]; then
     echo "**** Adding universal-wireguardvpn packages to install lists ****"
     echo "\
+        iptables \
+        ip6tables \
+        iputils-ping \
         systemd-resolved \
         wireguard" >> /mod-repo-packages-to-install.list
 
+    curl -o /coredns.tgz -L https://github.com/coredns/coredns/releases/download/v1.11.3/coredns_1.11.3_linux_amd64.tgz
+    tar xf /coredns.tgz
+    cp coredns /usr/local/bin/
 fi
 
 # Alpine
