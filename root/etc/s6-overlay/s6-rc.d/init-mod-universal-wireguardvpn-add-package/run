@@ -30,6 +30,6 @@ if [ -f /sbin/apk ]; then
             net-tools \
             wireguard-tools" >> /mod-repo-packages-to-install.list
     else
-        echo "**** Universal-wireguardvpn packages already installed, skipping ****
+        echo "**** Universal-wireguardvpn packages already installed, skipping ****"
     fi
 fi
