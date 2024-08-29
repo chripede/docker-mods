@@ -1,6 +1,5 @@
 #!/usr/bin/with-contenv bash
 # shellcheck shell=bash
-# shellcheck disable=SC2016,SC1091,SC2183
 
 
 if [[ -n "$LAN_NETWORK" ]]; then

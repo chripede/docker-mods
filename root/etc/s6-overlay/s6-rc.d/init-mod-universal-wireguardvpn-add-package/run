@@ -6,16 +6,24 @@
 
 echo "**** Adding wireguard tools and its deps to package install lists ****"
 echo "\
-    bc \
     grep \
     iproute2 \
     iptables \
     iptables-legacy \
     ip6tables \
     iputils \
-    kmod \
     libcap-utils \
-    libqrencode-tools \
     net-tools \
-    openresolv \
     wireguard-tools" >> /mod-repo-packages-to-install.list
+
+
+
+# libqrencode-tools
+# openresolv
+#    kmod \
+# 
+#
+#
+#
+#
+#
