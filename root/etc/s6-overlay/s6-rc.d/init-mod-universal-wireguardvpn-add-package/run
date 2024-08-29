@@ -4,26 +4,32 @@
 # It takes advantage of the built-in init-mods-package-install init script that comes with the baseimages.
 # If using this, we need to make sure we set this init as a dependency of init-mods-package-install so this one runs first
 
+
+#!/usr/bin/with-contenv bash
+
 echo "**** Adding wireguard tools and its deps to package install lists ****"
-echo "\
-    grep \
-    iproute2 \
-    iptables \
-    iptables-legacy \
-    ip6tables \
-    iputils \
-    libcap-utils \
-    net-tools \
-    wireguard-tools" >> /mod-repo-packages-to-install.list
 
+## Ubuntu
+if [ -f /usr/bin/apt ]; then
+    echo "\
+        wireguard-tools" >> /mod-repo-packages-to-install.list
 
+fi
 
-# libqrencode-tools
-# openresolv
-#    kmod \
-# 
-#
-#
-#
-#
-#
+# Alpine
+if [ -f /sbin/apk ]; then
+    if ! apk info --installed wireguard-tools >/dev/null; then
+        echo "\
+            grep \
+            iproute2 \
+            iptables \
+            iptables-legacy \
+            ip6tables \
+            iputils \
+            libcap-utils \
+            net-tools \
+            wireguard-tools" >> /mod-repo-packages-to-install.list
+    else
+        echo "**** Universal-wireguardvpn packages already installed, skipping ****
+    fi
+fi
