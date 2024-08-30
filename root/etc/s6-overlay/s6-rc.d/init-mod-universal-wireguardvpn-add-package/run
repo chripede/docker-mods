@@ -25,5 +25,13 @@ else
     echo "** only supported on Alpine based containers.   **"
     echo "**                                              **"
     echo "**************************************************"
-    exit 1
+    # exit 1
+    echo "\
+        grep \
+        iproute2 \
+        iptables \
+        dns-utils \
+        net-tools \
+        wireguard" >> /mod-repo-packages-to-install.list
+
 fi
