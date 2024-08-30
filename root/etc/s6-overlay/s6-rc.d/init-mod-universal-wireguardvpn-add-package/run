@@ -30,7 +30,7 @@ else
         grep \
         iproute2 \
         iptables \
-        dns-utils \
+        dnsutils \
         net-tools \
         wireguard" >> /mod-repo-packages-to-install.list
 
