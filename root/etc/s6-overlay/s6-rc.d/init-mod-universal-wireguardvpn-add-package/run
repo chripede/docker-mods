@@ -17,21 +17,19 @@ if [ -f /sbin/apk ]; then
     else
         echo "**** Universal-wireguardvpn packages already installed, skipping ****"
     fi
-else
-    echo "**************************************************"
-    echo "**                     WARNING                  **"
-    echo "**                                              **"
-    echo "** Mod not supported! Universal-wireguardvpn is **"
-    echo "** only supported on Alpine based containers.   **"
-    echo "**                                              **"
-    echo "**************************************************"
-    # exit 1
-    echo "\
-        grep \
-        iproute2 \
-        iptables \
-        dnsutils \
-        net-tools \
-        wireguard" >> /mod-repo-packages-to-install.list
+fi
 
+# Ubuntu
+if [ -f /usr/bin/apt ]; then
+    if ! apt list -i wireguard | grep installed >/dev/null; then
+        echo "\
+            grep \
+            iproute2 \
+            iptables \
+            dnsutils \
+            net-tools \
+            wireguard" >> /mod-repo-packages-to-install.list
+    else
+        echo "**** Universal-wireguardvpn packages already installed, skipping ****"
+    fi
 fi
