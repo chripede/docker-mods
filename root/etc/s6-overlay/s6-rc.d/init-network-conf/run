@@ -19,5 +19,7 @@ else
 fi
 
 # Ubuntu hacks
-echo "**** Patching wg-quick for Ubuntu ****"
-sed -i 's/} | cmd resolvconf -a "$(resolvconf_iface_prefix)$INTERFACE" -m 0 -x/} | cmd tee > \/etc\/resolv.conf/' /usr/bin/wg-quick
+if [ -f /usr/bin/apt ]; then
+    echo "**** Patching wg-quick for Ubuntu ****"
+    sed -i 's/} | cmd resolvconf -a "$(resolvconf_iface_prefix)$INTERFACE" -m 0 -x/} | cmd tee > \/etc\/resolv.conf/' /usr/bin/wg-quick
+fi
