@@ -28,7 +28,7 @@ if [ -f /usr/bin/apt ]; then
             iptables \
             dnsutils \
             net-tools \
-            wireguard" >> /mod-repo-packages-to-install.list
+            wireguard-tools" >> /mod-repo-packages-to-install.list
     else
         echo "**** Universal-wireguardvpn packages already installed, skipping ****"
     fi
